@@ -169,7 +169,11 @@ namespace BinanceLauncher
                 Process process = new Process();
                 process.StartInfo.FileName = Configuration.Instance.BinancePath;
                 process.StartInfo.WorkingDirectory = Path.GetDirectoryName(Configuration.Instance.BinancePath) ?? "";
-                process.Start();
+                bool started = process.Start();
+                if (started)
+                {
+                    Application.Exit();
+                }
             }
             else
             {
