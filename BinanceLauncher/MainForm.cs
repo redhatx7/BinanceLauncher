@@ -28,10 +28,10 @@ namespace BinanceLauncher
             _resourceManager = new ResourceManager(typeof(MainForm));
             InitializeComponent();
             _countries.Sort();
-            comboBox1.Items.AddRange(_countries.ToArray());
-            textBox1.Text = Configuration.Instance.BinancePath;
-            comboBox1.Text = Configuration.Instance.Country;
-            checkBox1.Checked = Configuration.Instance.AutoLaunch;
+            countriesCombo.Items.AddRange(_countries.ToArray());
+            txtBinancePath.Text = Configuration.Instance.BinancePath;
+            countriesCombo.Text = Configuration.Instance.Country;
+            chkAutoLaunch.Checked = Configuration.Instance.AutoLaunch;
 
         }
         private readonly List<string> _countries =new List<string>()
@@ -53,7 +53,7 @@ namespace BinanceLauncher
             "Turkey"
         };
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSelectPath_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -64,7 +64,7 @@ namespace BinanceLauncher
                 ofd.CheckPathExists = true;
                 if(ofd.ShowDialog() == DialogResult.OK)
                 {
-                    textBox1.Text = Configuration.Instance.BinancePath = ofd.FileName;
+                    txtBinancePath.Text = Configuration.Instance.BinancePath = ofd.FileName;
                     Configuration.RewriteConfiguration();
                 }
                
@@ -107,8 +107,8 @@ namespace BinanceLauncher
             
             if(Configuration.Instance.AutoLaunch && _run)
             {
-                button1.Enabled = false;
-                if (_seconds > 0) button1.Text = string.Format(GlobalResource.LaunchButtonText, _seconds--);
+                btnLaunch.Enabled = false;
+                if (_seconds > 0) btnLaunch.Text = string.Format(GlobalResource.LaunchButtonText, _seconds--);
                 else
                 {
                     LaunchBinance();
@@ -131,13 +131,13 @@ namespace BinanceLauncher
                 if(result.Country == Configuration.Instance.Country)
                 {
                     _run = true;
-                    if (!button1.Enabled && !Configuration.Instance.AutoLaunch)
-                        button1.Enabled = true;
+                    if (!btnLaunch.Enabled && !Configuration.Instance.AutoLaunch)
+                        btnLaunch.Enabled = true;
                 }
                 else
                 {
                     _run = false;
-                    button1.Enabled = false;
+                    btnLaunch.Enabled = false;
                 }
             }
             else
@@ -148,16 +148,16 @@ namespace BinanceLauncher
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            Configuration.Instance.AutoLaunch = checkBox1.Checked;
-            button1.Enabled = !checkBox1.Checked;
+            Configuration.Instance.AutoLaunch = chkAutoLaunch.Checked;
+            btnLaunch.Enabled = !chkAutoLaunch.Checked;
             
-            button1.Text = _resourceManager.GetObject("button1.Text")?.ToString();
+            btnLaunch.Text = _resourceManager.GetObject("btnLaunch.Text")?.ToString();
             Configuration.RewriteConfiguration();
         }
 
         
      
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLaunch_Click(object sender, EventArgs e)
         {
             LaunchBinance();
         }
@@ -205,7 +205,7 @@ namespace BinanceLauncher
 
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            Configuration.Instance.Country = comboBox1.SelectedItem?.ToString();
+            Configuration.Instance.Country = countriesCombo.SelectedItem?.ToString();
             Configuration.RewriteConfiguration();
         }
 
