@@ -25,4 +25,4 @@
 > 
 > ### USDT: TTrK8LZJ4fGyQsKcyhhajSvuSzXHMGcNgX
 
-![Thank YOU](https://github.com/redhatx7/BinanceLauncher/blob/master/thankyou.jpg?raw=true)
+<img src="https://github.com/redhatx7/BinanceLauncher/blob/master/thankyou.jpg?raw=true" width='550'>
