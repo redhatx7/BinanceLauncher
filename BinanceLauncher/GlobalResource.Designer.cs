@@ -70,6 +70,15 @@ namespace BinanceLauncher {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If this program helped you, feel free to donate.
+        /// </summary>
+        internal static string Donate {
+            get {
+                return ResourceManager.GetString("Donate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Country: {0}
         ///
         ///City: {1}
@@ -106,6 +115,15 @@ namespace BinanceLauncher {
         internal static string NotConnected {
             get {
                 return ResourceManager.GetString("NotConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desktop shortcut created..
+        /// </summary>
+        internal static string ShortcutCreated {
+            get {
+                return ResourceManager.GetString("ShortcutCreated", resourceCulture);
             }
         }
     }

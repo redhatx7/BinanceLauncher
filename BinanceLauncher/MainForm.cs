@@ -8,18 +8,24 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IWshRuntimeLibrary;
 using Microsoft.Win32;
+using File = System.IO.File;
 
 namespace BinanceLauncher
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+
+        private readonly ResourceManager _resourceManager;
+        public MainForm()
         {
+            _resourceManager = new ResourceManager(typeof(MainForm));
             InitializeComponent();
             _countries.Sort();
             comboBox1.Items.AddRange(_countries.ToArray());
@@ -93,20 +99,15 @@ namespace BinanceLauncher
             this.Focus();
         }
 
-       
-
-
-        
-
-       
-        
         private bool _run = false;
         private int _seconds = 5;
 
         private async void timer1_Tick(object sender, EventArgs e)
         {
+            
             if(Configuration.Instance.AutoLaunch && _run)
             {
+                button1.Enabled = false;
                 if (_seconds > 0) button1.Text = string.Format(GlobalResource.LaunchButtonText, _seconds--);
                 else
                 {
@@ -119,6 +120,8 @@ namespace BinanceLauncher
             else if (!Configuration.Instance.AutoLaunch)
             {
                 _seconds = 5;
+
+                
             }
 
             var result = await IpRequest.QueryIPInformation();
@@ -128,7 +131,8 @@ namespace BinanceLauncher
                 if(result.Country == Configuration.Instance.Country)
                 {
                     _run = true;
-                    button1.Enabled = true;
+                    if (!button1.Enabled && !Configuration.Instance.AutoLaunch)
+                        button1.Enabled = true;
                 }
                 else
                 {
@@ -146,6 +150,8 @@ namespace BinanceLauncher
         {
             Configuration.Instance.AutoLaunch = checkBox1.Checked;
             button1.Enabled = !checkBox1.Checked;
+            
+            button1.Text = _resourceManager.GetObject("button1.Text")?.ToString();
             Configuration.RewriteConfiguration();
         }
 
@@ -171,6 +177,18 @@ namespace BinanceLauncher
             }
         }
 
+        private void CreateDesktopShortcut()
+        {
+            object shDesktop = (object)"Desktop";
+            WshShell shell = new WshShell();
+            string shortcutAddress = (string)shell.SpecialFolders.Item(ref shDesktop) + @"\BinanceLauncher.lnk";
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
+            shortcut.Description = "Shortcut for Binance launcher";
+            shortcut.TargetPath = Application.ExecutablePath;
+            shortcut.WorkingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+            shortcut.Save();
+        }
+
         private void persianToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default["Calture"] = "fa-IR";
@@ -189,6 +207,18 @@ namespace BinanceLauncher
         {
             Configuration.Instance.Country = comboBox1.SelectedItem?.ToString();
             Configuration.RewriteConfiguration();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutForm().ShowDialog(this);
+        }
+
+        private void createDesktopShortcutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateDesktopShortcut();
+            MessageBox.Show(this, GlobalResource.ShortcutCreated, "Shortcut", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
     }
 }

@@ -120,6 +120,9 @@
   <data name="BinanceNotFound" xml:space="preserve">
     <value>Binance not found. Check path and try again.</value>
   </data>
+  <data name="Donate" xml:space="preserve">
+    <value>If this program helped you, feel free to donate</value>
+  </data>
   <data name="LabelText" xml:space="preserve">
     <value>Country: {0}
 
@@ -135,5 +138,8 @@ IP: {2}</value>
   </data>
   <data name="NotConnected" xml:space="preserve">
     <value>Not Connected. Check Internet Connection.</value>
+  </data>
+  <data name="ShortcutCreated" xml:space="preserve">
+    <value>Desktop shortcut created.</value>
   </data>
 </root>

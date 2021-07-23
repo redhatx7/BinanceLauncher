@@ -136,4 +136,7 @@
   <data name="NotConnected" xml:space="preserve">
     <value>اینترنت متصل نیست. اتصال اینترنتی را بررسی کنید.</value>
   </data>
+  <data name="ShortcutCreated" xml:space="preserve">
+    <value>میانبر میزکار ایجاد شد.</value>
+  </data>
 </root>

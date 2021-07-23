@@ -17,11 +17,11 @@ namespace BinanceLauncher
         [STAThread]
         static void Main()
         {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default["Calture"].ToString() ?? "en-US");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default["Calture"]?.ToString() ?? "en-US");
             Configuration.LoadConfiguration();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

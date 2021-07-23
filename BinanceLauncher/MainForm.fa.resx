@@ -186,13 +186,19 @@
     <value>انگلیسی</value>
   </data>
   <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 22</value>
+    <value>159, 22</value>
   </data>
   <data name="languageToolStripMenuItem.Text" xml:space="preserve">
     <value>زبان</value>
   </data>
+  <data name="createDesktopShortcutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 22</value>
+  </data>
+  <data name="createDesktopShortcutToolStripMenuItem.Text" xml:space="preserve">
+    <value>ایجاد میانبر میزکار</value>
+  </data>
   <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 22</value>
+    <value>159, 22</value>
   </data>
   <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
     <value>درباره</value>
@@ -202,6 +208,9 @@
   </data>
   <data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>راهنما</value>
+  </data>
+  <data name="menuStrip1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 8.25pt</value>
