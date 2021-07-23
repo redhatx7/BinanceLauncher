@@ -12,6 +12,9 @@
 ![English](https://github.com/redhatx7/BinanceLauncher/blob/master/binance-launcher.PNG?raw=true)
 ![فارسی](https://github.com/redhatx7/BinanceLauncher/blob/master/binance-launcher-fa.PNG?raw=true)
 
+## Download 
+برای دانلود فایل اجرای از لینک زیر استفاده کنید.
+[Download from releases page](https://github.com/redhatx7/BinanceLauncher/releases/tag/v1.0)
 
 ## Helped you?
 
