@@ -17,6 +17,7 @@ namespace BinanceLauncher
         [STAThread]
         static void Main()
         {
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default["Calture"]?.ToString() ?? "en-US");
             Configuration.LoadConfiguration();
             Application.EnableVisualStyles();

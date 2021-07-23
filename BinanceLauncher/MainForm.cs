@@ -32,8 +32,24 @@ namespace BinanceLauncher
             txtBinancePath.Text = Configuration.Instance.BinancePath;
             countriesCombo.Text = Configuration.Instance.Country;
             chkAutoLaunch.Checked = Configuration.Instance.AutoLaunch;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+            Application.ThreadException += ApplicationOnThreadException;
 
         }
+
+        private void ApplicationOnThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(this, "ERROR");
+            File.AppendAllText("error.text", $"{e.Exception.Message}\n{e.Exception.StackTrace}");
+        }
+
+        private void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(this, "ERROR");
+            File.AppendAllText("error.text",$"{(e.ExceptionObject as Exception).Message}\n{(e.ExceptionObject as Exception).StackTrace}");
+
+        }
+
         private readonly List<string> _countries =new List<string>()
         {
             "Netherlands",
