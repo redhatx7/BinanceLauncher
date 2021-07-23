@@ -1,3 +1,27 @@
 # Binance Launcher
-این برنامه اول IP شمارو بررسی می‌کنه و اگه با آی‌پی کشور مد نظرتون تطابق داشت بایننس و اجرا می‌کنه.
-برای راحتی کار می‌تونین  به تسکبار ویندوز اضافه‌ش کنین و این برنامه رو همیشه اجرا کنید.
+
+`<p align="right">
+این برنامه به شما کمک کنه که قبل از اجرای بایننس، آی‌پی شما رو بررسی کنه و در صورت مطابق داشتن با کشور موردنظرتون بایننس و اجرا کنه  و اشتباهاتی مثل زمانی که حواستون نیست و با آی‌پی کشور دیگه‌ای وصل شدید یا، یاتون رفت آی‌پی تونو عوض کنین جلوگیری کنه.   
+برای راحتی کار این برنامه رو به تسک‌بار ویندوز اضافه کنید و به جای بایننس اجراش کنید. 
+
+</p>`
+
+
+# Screenshots
+
+![English](https://github.com/redhatx7/BinanceLauncher/blob/master/binance-launcher.PNG?raw=true)
+![فارسی](https://github.com/redhatx7/BinanceLauncher/blob/master/binance-launcher-fa.PNG?raw=true)
+
+
+## Helped you?
+
+<p dir="rtl" align="left">
+اگه این برنامه بهتون کمک کرد، اگه دوست داشتین Donate کنین ^^
+</p>
+
+> ### BTC: bc1qfdgyn436k5fn767p8d78zu6tje6dadpkptuvlj
+> 
+> ### ETH: 0xefF50F0a7ABE680F4b3a8cC5db1488020d4Ab415
+> 
+> ### USDT: TTrK8LZJ4fGyQsKcyhhajSvuSzXHMGcNgX
+
